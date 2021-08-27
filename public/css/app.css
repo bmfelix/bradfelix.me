@@ -10012,6 +10012,12 @@ h3 {
 
   /* page-break-after works, as well */
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #CFD8DC;
@@ -10230,4 +10236,262 @@ body {
 .thead-dark-primary {
   background-color: #3c4055 !important;
   color: #fff;
+}
+
+.show-border {
+  border: 1px solid #000;
+}
+
+.blackbg {
+  background-color: #000 !important;
+  color: #999999 !important;
+  height: vh;
+}
+
+.fullHeight {
+  height: 100% !important;
+}
+
+.user-image {
+  height: 325px;
+  overflow: hidden;
+}
+
+.rect-header {
+  font-size: 18px;
+}
+
+.rect-bottom {
+  font-size: 14px;
+}
+
+.character-name {
+  font-size: 24px;
+}
+
+.rounded-rect {
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #999;
+  color: #000;
+  font-size: 14px;
+  margin: 10px 0px;
+}
+
+.rounded-rect-top {
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.rounded-rect-left {
+  border: 1px solid #999;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #999;
+  color: #000;
+  font-size: 14px;
+  margin: 10px 0px;
+  border-right: 1px solid #000;
+  text-align: center;
+}
+
+.rounded-rect-right {
+  border: 1px solid #999;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #999;
+  color: #000;
+  font-size: 14px;
+  margin: 10px 0px;
+  border-left: 1px solid #000;
+}
+
+.left-rect-header, .right-rect-header, .mid-rect-header {
+  text-align: center;
+  font-size: 16px;
+}
+
+.left-rect-bottom, .right-rect-bottom, .mid-rect-bottom {
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+@media only screen and (max-width: 399px) {
+  .rounded-rect {
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 12px;
+    margin: 10px 0px;
+  }
+
+  .rounded-rect-top {
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 400px) {
+  .rounded-rect {
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 12px;
+    margin: 10px 0px;
+  }
+
+  .rounded-rect-top {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .rounded-rect-left {
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+    text-align: center;
+  }
+
+  .rounded-rect-right {
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+  }
+
+  .left-rect-header, .right-rect-header, .mid-rect-header {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .left-rect-bottom, .right-rect-bottom, .mid-rect-bottom {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .rounded-rect {
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+  }
+
+  .rounded-rect-top {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  .rounded-rect-left {
+    border: 1px solid #999;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+    border-right: 1px solid #000;
+    text-align: center;
+  }
+
+  .rounded-rect-right {
+    border: 1px solid #999;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+    border-left: 1px solid #000;
+  }
+
+  .left-rect-header, .right-rect-header, .mid-rect-header {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .left-rect-bottom, .right-rect-bottom, .mid-rect-bottom {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .rounded-rect {
+    border: 1px solid #999;
+    border-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 16px;
+    margin: 10px 0px;
+  }
+
+  .rounded-rect-top {
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 20px;
+  }
+
+  .rounded-rect-left {
+    border: 1px solid #999;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+    border-right: 1px solid #000;
+    text-align: center;
+  }
+
+  .rounded-rect-right {
+    border: 1px solid #999;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #999;
+    color: #000;
+    font-size: 14px;
+    margin: 10px 0px;
+    border-left: 1px solid #000;
+  }
+
+  .left-rect-header, .right-rect-header, .mid-rect-header {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .left-rect-bottom, .right-rect-bottom, .mid-rect-bottom {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+  }
 }

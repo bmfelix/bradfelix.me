@@ -3397,50 +3397,236 @@ var Sheet = /*#__PURE__*/function (_Component) {
   _createClass(Sheet, [{
     key: "render",
     value: function render() {
+      var data = this.props.data.data;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "col-12 no-padding-margin fluid-container margin-top",
+        className: "col-12 no-padding-margin fluid-container blackbg",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
           method: "POST",
           name: "pathfinderSheet",
           id: "pathfinderSheet",
-          className: "col-12",
+          className: "col-12 margin-top float-left no-padding-margin",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "form-group container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "col-12",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_inputs_validation__WEBPACK_IMPORTED_MODULE_2__.Textbox, {
-                attributesInput: {
-                  id: "itemsPerBar",
-                  name: "itemsPerBar",
-                  type: "number",
-                  placeholder: "items per bar?",
-                  autoFocus: true
-                },
-                disabled: false // Optional.[Bool].Default: false.
-                ,
-                validate: true // Optional.[Bool].Default: false. If you have a submit button and trying to validate all the inputs of your form at onece, toggle it to true, then it will validate the field and pass the result via the "validationCallback" you provide.
-                ,
-                validationCallback: function validationCallback(res) {} // Optional.[Func].Default: none. Return the validation result.
-                ,
-                classNameInput: "form-control col-12" // Optional.[String].Default: "".
-                ,
-                onKeyUp: function onKeyUp() {} // Required.[Func].Default: () => {}. Will return the value.
-                ,
-                onBlur: function onBlur(e) {} // Optional.[Func].Default: none. In order to validate the value on blur, you MUST provide a function, even if it is an empty function. Missing this, the validation on blur will not work.
-                ,
-                validationOption: {
-                  name: "# of Bars",
-                  // Optional.[String].Default: "". To display in the Error message. i.e Please enter your ${name}.
-                  check: true,
-                  // Optional.[Bool].Default: true. To determin if you need to validate.
-                  required: true,
-                  // Optional.[Bool].Default: true. To determin if it is a required field.
-                  min: 1,
-                  // Optional.[Number].Default: 0. Validation of min length when validationOption['type'] is string, min amount when validationOption['type'] is number.
-                  max: 3 // Optional.[Number].Default: 0. Validation of max length when validationOption['type'] is string, max amount when validationOption['type'] is number.
-
-                }
-              })
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "col-md-6 col-12 float-left user-image",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: "/images/user.jpg"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "col-md-6 col-12 float-left no-padding-margin",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "col-12",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-12 float-left character-name",
+                    children: data.name
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "col-12 float-left no-padding-margin",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-6 float-left",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect rounded-rect-top",
+                        children: "RACE"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect",
+                        children: data.race
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-6 float-left",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect rounded-rect-top",
+                        children: "GENDER"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect",
+                        children: data.gender
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-6 float-left",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect rounded-rect-top",
+                        children: "AGE"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect",
+                        children: data.age
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-6 float-left",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect rounded-rect-top",
+                        children: "SIZE"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect",
+                        children: data.size
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-6 float-left",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect rounded-rect-top",
+                        children: "CLASS"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect",
+                        children: data["class"]
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-6 float-left",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect rounded-rect-top",
+                        children: "HOMELAND"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rounded-rect",
+                        children: data.homeland
+                      })]
+                    })]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "col-12",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "col-12 float-left no-padding-margin",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "col-md-2 col-12 float-left",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-md-6 col-12 float-left rounded-rect-left no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 left-rect-header no-padding-margin",
+                        children: "HP"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 left-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-md-6 col-12 float-left rounded-rect-right no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 right-rect-header no-padding-margin",
+                        children: "MP"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 right-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-md-2 col-12 float-left",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-header no-padding-margin",
+                        children: "ENDURANCE"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-md-2 col-12 float-left",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-header no-padding-margin",
+                        children: "SPEED"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-md-2 col-12 float-left",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-header no-padding-margin",
+                        children: "INTELLECT"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-md-2 col-12 float-left",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-header no-padding-margin",
+                        children: "STRENGTH"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-md-2 col-12 float-left",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-header no-padding-margin",
+                        children: "DEXTERITY"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 mid-rect-bottom no-padding-margin",
+                        children: "0"
+                      })]
+                    })
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "col-12",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "col-12 float-left no-padding-margin",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "col-md-6 col-12 float-left",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rect-header no-padding-margin",
+                        children: "APPEARANCE"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                        className: "col-12 rect-bottom no-padding-margin",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut urna ac nibh fermentum venenatis. Quisque fringilla mauris et tempor pulvinar. Aenean quam arcu, pulvinar sit amet tempor a, bibendum sed ipsum. Praesent rhoncus, metus ut porttitor consectetur, orci sapien bibendum orci, vel elementum leo neque ultricies velit. Suspendisse elementum leo non dolor sollicitudin luctus. Maecenas ut est a risus viverra ornare vitae non odio. Maecenas accumsan dapibus dignissim. Duis volutpat tellus urna, non scelerisque purus accumsan vel. Fusce at fringilla urna. Maecenas suscipit dignissim venenatis. Cras vulputate augue eu nibh pretium ullamcorper. Nunc placerat felis sit amet felis tristique, sit amet porta justo porttitor. Duis purus erat, porttitor vel tortor quis, scelerisque molestie magna. Donec interdum pulvinar arcu, quis commodo ante."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit."
+                        })]
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rect-header no-padding-margin",
+                        children: "PERSONALITY"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                        className: "col-12 rect-bottom no-padding-margin",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut urna ac nibh fermentum venenatis. Quisque fringilla mauris et tempor pulvinar. Aenean quam arcu, pulvinar sit amet tempor a, bibendum sed ipsum. Praesent rhoncus, metus ut porttitor consectetur, orci sapien bibendum orci, vel elementum leo neque ultricies velit. Suspendisse elementum leo non dolor sollicitudin luctus. Maecenas ut est a risus viverra ornare vitae non odio. Maecenas accumsan dapibus dignissim. Duis volutpat tellus urna, non scelerisque purus accumsan vel. Fusce at fringilla urna. Maecenas suscipit dignissim venenatis. Cras vulputate augue eu nibh pretium ullamcorper. Nunc placerat felis sit amet felis tristique, sit amet porta justo porttitor. Duis purus erat, porttitor vel tortor quis, scelerisque molestie magna. Donec interdum pulvinar arcu, quis commodo ante."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit."
+                        })]
+                      })]
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "col-md-6 col-12 float-left",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "col-12 float-left rounded-rect no-padding-margin",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "col-12 rect-header no-padding-margin",
+                        children: "BACKSTORY"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                        className: "col-12 rect-bottom no-padding-margin",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut urna ac nibh fermentum venenatis. Quisque fringilla mauris et tempor pulvinar. Aenean quam arcu, pulvinar sit amet tempor a, bibendum sed ipsum. Praesent rhoncus, metus ut porttitor consectetur, orci sapien bibendum orci, vel elementum leo neque ultricies velit. Suspendisse elementum leo non dolor sollicitudin luctus. Maecenas ut est a risus viverra ornare vitae non odio. Maecenas accumsan dapibus dignissim. Duis volutpat tellus urna, non scelerisque purus accumsan vel. Fusce at fringilla urna. Maecenas suscipit dignissim venenatis. Cras vulputate augue eu nibh pretium ullamcorper. Nunc placerat felis sit amet felis tristique, sit amet porta justo porttitor. Duis purus erat, porttitor vel tortor quis, scelerisque molestie magna. Donec interdum pulvinar arcu, quis commodo ante."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit. Morbi finibus elementum consectetur. Quisque odio felis, efficitur et tempor quis, pellentesque a mauris. Vestibulum mattis at enim vel laoreet. In nec sapien pharetra, accumsan lectus non, mollis purus. Proin eu sagittis ipsum. Sed porttitor eros eu auctor auctor. Aenean et blandit odio, non venenatis urna."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit. Nulla scelerisque quam eu justo tincidunt, ac finibus enim convallis. Quisque eu congue diam. Mauris ultrices diam sit amet ultrices viverra. Donec nibh purus, tincidunt ac porttitor eu, varius ut velit. Proin tempus tellus diam. Mauris varius purus vel orci rutrum tincidunt. Maecenas venenatis non nulla ut aliquam. Curabitur aliquet, ligula non rhoncus faucibus, mauris orci interdum est, in mattis risus elit eget eros. Pellentesque consectetur molestie libero, et varius ex consequat sit amet. Sed pellentesque tristique lacus at dignissim."
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                          children: "Morbi at cursus sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam accumsan eu massa id consectetur. Pellentesque ut orci metus. Nullam lacus ante, pellentesque eu ligula vel, maximus placerat eros. Etiam non pharetra tellus, sit amet convallis ipsum. Curabitur eget est velit. Mauris dictum mi in nisl fermentum sollicitudin. Donec sed erat ex. Duis ante nulla, porttitor quis libero id, condimentum tristique elit. Integer sed ligula nec turpis aliquet venenatis in et lectus. Vivamus dignissim nunc in sapien facilisis, eget mollis sem venenatis. Aenean at leo ipsum. Nulla accumsan nulla ipsum, sit amet ornare leo bibendum nec. Donec a erat elit. Aliquam vitae sodales nibh, a faucibus nulla. Aenean sodales ornare turpis sit amet ornare. Mauris feugiat molestie est. Phasellus convallis tortor venenatis dolor convallis congue. Nunc rhoncus consectetur ipsum ut bibendum."
+                        })]
+                      })]
+                    })
+                  })]
+                })
+              })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "hidden",
@@ -3466,7 +3652,7 @@ var Sheet = /*#__PURE__*/function (_Component) {
 
 function mapStateToProps(state) {
   return {
-    data: state.rootReducer.pfReducer,
+    data: state.rootReducer.PFReducer,
     csrf: state.rootReducer.mainReducer.csrf
   };
 }
@@ -3555,7 +3741,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PF_UPDATE_IMAGE": () => (/* binding */ PF_UPDATE_IMAGE),
 /* harmony export */   "PF_SET_COLOR": () => (/* binding */ PF_SET_COLOR),
-/* harmony export */   "PF_SAVE_DATA": () => (/* binding */ PF_SAVE_DATA)
+/* harmony export */   "PF_SAVE_DATA": () => (/* binding */ PF_SAVE_DATA),
+/* harmony export */   "PF_EDIT_NAME": () => (/* binding */ PF_EDIT_NAME)
 /* harmony export */ });
 /**
  * export consts for the Scan Reducer
@@ -3563,6 +3750,7 @@ __webpack_require__.r(__webpack_exports__);
 var PF_UPDATE_IMAGE = 'PF_UPDATE_IMAGE';
 var PF_SET_COLOR = 'PF_SET_COLOR';
 var PF_SAVE_DATA = 'PF_SAVE_DATA';
+var PF_EDIT_NAME = 'PF_EDIT_NAME';
 
 /***/ }),
 
@@ -3679,7 +3867,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   userImage: "/images/user.png",
   accentColor: "#de009b",
-  data: {}
+  editName: false,
+  data: {
+    name: "NAMEY NAMEY (NAME NAME)",
+    race: "Ursaran",
+    gender: "Female",
+    age: "28 years",
+    size: "6' 4\" 290 lbs",
+    "class": "Shaman",
+    homeland: "Polaris"
+  }
 };
 /**
  * Ano Scan Reducer
@@ -3704,6 +3901,11 @@ var PFReducer = function PFReducer() {
 
     case _actionTypes_PFTypes__WEBPACK_IMPORTED_MODULE_0__.PF_SAVE_DATA:
       return _objectSpread({}, state);
+
+    case _actionTypes_PFTypes__WEBPACK_IMPORTED_MODULE_0__.PF_EDIT_NAME:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        editName: true
+      });
 
     default:
       return state;

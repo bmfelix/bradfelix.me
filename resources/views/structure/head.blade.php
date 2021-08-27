@@ -4,7 +4,7 @@
     <meta name="description" content="A Custom Aluminum Dashboard" />
     <meta name="author" content="Brad Felix" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>bradfelix.me</title>
+    <title>Brad Felix is Me</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <!-- Core theme CSS (includes Bootstrap)-->
