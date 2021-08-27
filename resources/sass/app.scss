@@ -1,1 +1,240 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Variables
+@import 'variables';
+
+/*! `Custom` Bootstrap 4 theme */
+@import url(https://fonts.googleapis.com/css?family=Poppins:200,300,400,700);
+$headings-font-family:Poppins;
+
+$enable-grid-classes:true;
+$primary:#27a2fc;
+$secondary:#a0b7bc;
+$success:#37bd74;
+$danger:#e8286b;
+$info:#7ebcfa;
+$warning:#ff9b37;
+$light:#eef0f2;
+$dark:#3c4055;
+$spacer:1rem;
+$border-width:1px;
+$btn-border-radius:.25rem;
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Add SASS theme customizations here..
+
+@media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #CFD8DC;
+    background: url('/background.png');
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.card-header {
+    font-size:24px;
+}
+
+.login-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-container {
+    background-color: #fff;
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-container {
+    text-align: center;
+    height: calc(100vh - 75px);
+}
+
+.margin-top {
+    margin-top: 20px !important;
+}
+
+// .modal {
+//     display: block; /* Hidden by default */
+//     position: fixed; /* Stay in place */
+//     z-index: 1; /* Sit on top */
+//     left: 0;
+//     top: 0;
+//     width: 100%; /* Full width */
+//     height: 100%; /* Full height */
+//     overflow: auto; /* Enable scroll if needed */
+//     background-color: rgb(0,0,0); /* Fallback color */
+//     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+// }
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 13% auto;
+    padding: 20px;
+    border: 4px solid #000;
+    width: 80%;
+}
+
+#login_modal {
+    display: none;
+}
+
+.no-padding-margin {
+    margin: 0px;
+    padding: 0px;
+}
+
+#itemsPerBar, #totalBars {
+    height: 60px;
+    font-size: 19px;
+}
+
+#calcBars {
+    margin-top:20px;
+    font-size: 48px;
+}
+
+.tankSpace {
+    margin: 10px auto;
+}
+
+.pagebreak img {
+    width: 100%;
+}
+
+.list-paging {
+    margin: 5px 0px;
+}
+
+#next-link-bottom {
+    position: absolute;
+    right: 35px;
+}
+
+.dropdown-element{
+    border: 2px solid #000 !important;
+}
+
+.dropdown-list-item {
+    padding: 5px 0px !important;
+}
+
+.dropdown-list-item span {
+    padding: 0px !important;
+    color: #000;
+}
+
+.dropdown-list-item:hover {
+    background-color: #fff;
+}
+
+.dropdown-list-item span:hover {
+    color: #27a2fc;
+}
+
+.dropdown-list-container {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+  height: 100vh;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container .react-datepicker-wrapper {
+  margin: 0px;
+  width: 100%;
+}
+
+.input-container .react-datepicker-wrapper input {
+  padding: 4px 12px;
+}
+
+.summary {
+  font-size: 18px;
+}
+
+.react-datepicker__month .react-datepicker__month-text, .react-datepicker__month .react-datepicker__quarter-text {
+    margin: 0px !important;
+}
+
+.react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover {
+    background-color: #e8286b !important;
+    color: #fff;
+}
+
+.date-picker-bottom {
+    margin-top: 10px;
+}
+
+#the_loader {
+    display:none;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+    0% {
+       opacity:1
+    }
+
+    50% {
+       opacity:0
+    }
+
+    90% {
+       transform: translate(0,-100px);
+    }
+
+    100% {
+      opacity:0
+        /*transform: translateY(0px);*/
+        /*opacity:1*/
+    }
+}
+
+.login-error {
+    font-size:24px;
+}
+
+.thead-dark-primary {
+    background-color: #3c4055 !important;
+    color: #fff;
+}
