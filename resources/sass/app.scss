@@ -264,6 +264,10 @@ body {
     overflow: hidden;
 }
 
+.user-image img {
+    width: 100%;
+}
+
 .rect-header {
     font-size:18px;
 }
@@ -273,7 +277,7 @@ body {
 }
 
 .character-name {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .rounded-rect {
@@ -298,6 +302,8 @@ body {
     border: 1px solid #999;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     background-color: #999;
     color: #000;
     font-size: 14px;
@@ -310,6 +316,8 @@ body {
     border: 1px solid #999;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     background-color: #999;
     color: #000;
     font-size: 14px;
@@ -369,7 +377,10 @@ body {
 
     .rounded-rect-left {
         border: 1px solid #999;
-        border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
         background-color: #999;
         color: #000;
         font-size: 14px;
@@ -379,7 +390,10 @@ body {
 
     .rounded-rect-right {
         border: 1px solid #999;
-        border-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
         background-color: #999;
         color: #000;
         font-size: 14px;
@@ -421,6 +435,8 @@ body {
         border: 1px solid #999;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
         background-color: #999;
         color: #000;
         font-size: 14px;
@@ -433,6 +449,8 @@ body {
         border: 1px solid #999;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
         background-color: #999;
         color: #000;
         font-size: 14px;
@@ -475,6 +493,8 @@ body {
         border: 1px solid #999;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
         background-color: #999;
         color: #000;
         font-size: 14px;
@@ -487,6 +507,8 @@ body {
         border: 1px solid #999;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
         background-color: #999;
         color: #000;
         font-size: 14px;
@@ -504,4 +526,30 @@ body {
         font-weight: bold;
         font-size: 36px;
     }
+}
+
+.rounded-text-box {
+    height: 25px;
+    border-radius: 5px !important;
+}
+
+.rounded-rect-editing {
+    background-color: #000;
+    border: 1px solid #000;
+    margin: 0px;
+    padding: 0px;
+}
+
+.large-text-box {
+    height: 55px;
+    font-size: 48px !important;
+    text-align: center;
+}
+
+.rdw-editor-main {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 100%;
 }

@@ -68,6 +68,10 @@
         "array-bracket-newline": ["error", "always"],
         "block-spacing": "error",
         "jsx-quotes": ["error", "prefer-single"],
-        "no-secrets/no-secrets":"error"
+        "no-secrets/no-secrets":"error",
+        "react-redux/prefer-separate-component-file": 0,
+        "react/prop-types": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "jsx-a11y/click-events-have-key-events": 0
     }
 }
