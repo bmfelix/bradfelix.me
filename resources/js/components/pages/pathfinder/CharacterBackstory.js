@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useRef } from 'react'
 import { connect } from 'react-redux'
-import { Editor } from 'react-draft-wysiwyg'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import { Editor } from '@tinymce/tinymce-react'
+import ReactHtmlParser from 'react-html-parser'
 
 /**
  * renders ano tag scan page
@@ -17,21 +17,20 @@ class CharacterBackstory extends Component {
         super(props)
     }
 
-    changeBackstoryFlag() {
+    changeBackstoryFlag(e) {
+        e.preventDefault()
+
         this.props.dispatch({type: 'PF_EDIT_BACKSTORY', data: this.props.record.editBackstory})
     }
 
     updateBackstory(e) {
-        e.preventDefault()
-        let characterBackstory = e.target.value
+        let characterBackstory = e
 
         const updateObject = {type: 'PF_UPDATE_BACKSTORY', edit: false, backstory: characterBackstory}
         this.props.dispatch(updateObject)
     }
 
-    saveBackstory(e) {
-        e.preventDefault()
-
+    saveBackstory() {
         const updateObject = {type: 'PF_UPDATE_BACKSTORY', edit: true, backstory: null}
         this.props.dispatch(updateObject)
     }
@@ -39,13 +38,13 @@ class CharacterBackstory extends Component {
     renderBackstoryOptions() {
         const editBackstory = this.props.record.editBackstory
         const data = this.props.record.data
-        let backstory = Object.keys(data.backstory).length === 0 ? 'No Backstory Data' : data.backstory
+        const { MIX_TINYMCE_API_KEY } = process.env
 
         if (!editBackstory) {
             return (
                 <div className='col-12 float-left rounded-rect no-padding-margin'>
                     <div className='col-12 rect-header no-padding-margin'>BACKSTORY</div>
-                    <div className='col-12 rect-bottom no-padding-margin' onClick={ this.changeBackstoryFlag.bind(this) }>{ backstory }</div>
+                    <div className='col-12 rect-bottom no-padding-margin' onClick={ this.changeBackstoryFlag.bind(this) }>{ ReactHtmlParser (data.backstory) }</div>
                 </div>
             )
         } else {
@@ -55,17 +54,27 @@ class CharacterBackstory extends Component {
                     <div className='col-12 rect-bottom no-padding-margin'>
                         <div className='col-12 float-left no-padding-margin'>
                             <Editor
-                                editorState={this.props.record.editorBackstory}
-                                initialContentState={backstory}
-                                toolbarClassName='toolbarClassName'
-                                wrapperClassName='wrapperClassName'
-                                editorClassName='editorClassName'
-                                onEditorStateChange={this.updateBackstory.bind(this)}
+                                apiKey={ MIX_TINYMCE_API_KEY }
+                                value={ data.backstory }
+                                init={{
+                                    height: 300,
+                                    width: '100%',
+                                    menubar: false,
+                                    inline: false,
+                                    plugins: [
+                                        'advlist autolink lists link image charmap print preview anchor',
+                                        'searchreplace visualblocks code fullscreen',
+                                        'insertdatetime media table paste code help wordcount'
+                                    ],
+                                    toolbar: 'undo redo | formatselect | ' +
+                                    'bold italic backcolor | alignleft aligncenter ' +
+                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                    'removeformat | help',
+                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                }}
+                                onEditorChange={this.updateBackstory.bind(this)}
+                                onFocusOut={this.saveBackstory.bind(this)}
                             />
-                            <div className='wrapperClassName'>
-                                <div className='toolbarClassName'></div>
-                                <div className='editorClassName'></div>
-                            </div>
                         </div>
                     </div>
                 </div>

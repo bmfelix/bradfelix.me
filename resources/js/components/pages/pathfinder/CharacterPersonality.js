@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useRef } from 'react'
 import { connect } from 'react-redux'
-import { Editor } from 'react-draft-wysiwyg'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import { Editor } from '@tinymce/tinymce-react'
+import ReactHtmlParser from 'react-html-parser'
 
 /**
  * renders ano tag scan page
@@ -17,21 +17,20 @@ class CharacterPersonality extends Component {
         super(props)
     }
 
-    changePersonalityFlag() {
+    changePersonalityFlag(e) {
+        e.preventDefault()
+
         this.props.dispatch({type: 'PF_EDIT_PERSONALITY', data: this.props.record.editPersonality})
     }
 
     updatePersonality(e) {
-        e.preventDefault()
-        let characterPersonality = e.target.value
+        let characterPersonality = e
 
         const updateObject = {type: 'PF_UPDATE_PERSONALITY', edit: false, personality: characterPersonality}
         this.props.dispatch(updateObject)
     }
 
-    savePersonality(e) {
-        e.preventDefault()
-
+    savePersonality() {
         const updateObject = {type: 'PF_UPDATE_PERSONALITY', edit: true, personality: null}
         this.props.dispatch(updateObject)
     }
@@ -39,13 +38,13 @@ class CharacterPersonality extends Component {
     renderPersonalityOptions() {
         const editPersonality = this.props.record.editPersonality
         const data = this.props.record.data
-        let personality = Object.keys(data.personality).length === 0 ? 'No Personality Data' : data.personality
+        const { MIX_TINYMCE_API_KEY } = process.env
 
         if (!editPersonality) {
             return (
                 <div className='col-12 float-left rounded-rect no-padding-margin'>
                     <div className='col-12 rect-header no-padding-margin'>PERSONALITY</div>
-                    <div className='col-12 rect-bottom no-padding-margin' onClick={ this.changePersonalityFlag.bind(this) }>{ personality }</div>
+                    <div className='col-12 rect-bottom no-padding-margin' onClick={ this.changePersonalityFlag.bind(this) }>{ ReactHtmlParser (data.personality) }</div>
                 </div>
             )
         } else {
@@ -55,17 +54,27 @@ class CharacterPersonality extends Component {
                     <div className='col-12 rect-bottom no-padding-margin'>
                         <div className='col-12 float-left no-padding-margin'>
                             <Editor
-                                editorState={this.props.record.editorPersonality}
-                                initialContentState={personality}
-                                toolbarClassName='toolbarClassName'
-                                wrapperClassName='wrapperClassName'
-                                editorClassName='editorClassName'
-                                onEditorStateChange={this.updatePersonality.bind(this)}
+                                apiKey={ MIX_TINYMCE_API_KEY }
+                                value={ data.personality }
+                                init={{
+                                    height: 300,
+                                    width: '100%',
+                                    menubar: false,
+                                    inline: false,
+                                    plugins: [
+                                        'advlist autolink lists link image charmap print preview anchor',
+                                        'searchreplace visualblocks code fullscreen',
+                                        'insertdatetime media table paste code help wordcount'
+                                    ],
+                                    toolbar: 'undo redo | formatselect | ' +
+                                    'bold italic backcolor | alignleft aligncenter ' +
+                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                    'removeformat | help',
+                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                }}
+                                onEditorChange={this.updatePersonality.bind(this)}
+                                onFocusOut={this.savePersonality.bind(this)}
                             />
-                            <div className='wrapperClassName'>
-                                <div className='toolbarClassName'></div>
-                                <div className='editorClassName'></div>
-                            </div>
                         </div>
                     </div>
                 </div>

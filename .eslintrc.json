@@ -1,5 +1,6 @@
 {
     "env": {
+        "node": true,
         "browser": true,
         "es2021": true
     },
@@ -65,7 +66,7 @@
         "no-multi-str": "error",
         "no-redeclare": "error",
         "yoda": "error",
-        "array-bracket-newline": ["error", "always"],
+        "array-bracket-newline": ["error", "never"],
         "block-spacing": "error",
         "jsx-quotes": ["error", "prefer-single"],
         "no-secrets/no-secrets":"error",

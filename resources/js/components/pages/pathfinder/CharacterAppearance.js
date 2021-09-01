@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useRef } from 'react'
 import { connect } from 'react-redux'
-import { EditorState, ContentState } from 'draft-js'
-import { Editor } from 'react-draft-wysiwyg'
-import htmlToDraft from 'html-to-draftjs'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import { Editor } from '@tinymce/tinymce-react'
+import ReactHtmlParser from 'react-html-parser'
 
 /**
  * renders ano tag scan page
@@ -21,45 +19,32 @@ class CharacterAppearance extends Component {
 
     changeAppearanceFlag(e) {
         e.preventDefault()
-        const html = this.props.record.data.appearance
-        const contentBlock = htmlToDraft(html)
-        if (contentBlock) {
-            const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks)
-            const editorState = EditorState.createWithContent(contentState)
-            localStorage.setItem('appearanceEditorState', JSON.stringify(editorState))
-            this.props.dispatch({type: 'PF_INIT_APPEARANCE_EDITOR', contentState: 'appearanceContentState', editorState: 'appearanceEditorState'})
-        }
+
         this.props.dispatch({type: 'PF_EDIT_APPEARANCE', data: this.props.record.editAppearance})
     }
 
     updateAppearance(e) {
-        e.preventDefault()
-        let characterAppearance = e.target.value
+        let characterAppearance = e
 
-        //const updateObject = {type: 'PF_UPDATE_APPEARANCE', edit: false, appearance: characterAppearance}
-        //this.props.dispatch(updateObject)
+        const updateObject = {type: 'PF_UPDATE_APPEARANCE', edit: false, appearance: characterAppearance}
+        this.props.dispatch(updateObject)
     }
 
-    saveAppearance(e) {
-        //e.preventDefault()
-
-        //const updateObject = {type: 'PF_UPDATE_APPEARANCE', edit: true, appearance: null}
-        //this.props.dispatch(updateObject)
+    saveAppearance() {
+        const updateObject = {type: 'PF_UPDATE_APPEARANCE', edit: true, appearance: null}
+        this.props.dispatch(updateObject)
     }
 
     renderAppearanceOptions() {
         const editAppearance = this.props.record.editAppearance
         const data = this.props.record.data
-
-        const editorState = JSON.parse(localStorage.getItem('appearanceEditorState'))
-
-        let appearance = Object.keys(data.appearance).length === 0 ? null : data.appearance
+        const { MIX_TINYMCE_API_KEY } = process.env
 
         if (!editAppearance) {
             return (
                 <div className='col-12 float-left rounded-rect no-padding-margin'>
                     <div className='col-12 rect-header no-padding-margin'>APPEARANCE</div>
-                    <div className='col-12 rect-bottom no-padding-margin' onClick={ this.changeAppearanceFlag.bind(this) }>{ appearance }</div>
+                    <div className='col-12 rect-bottom no-padding-margin' onClick={ this.changeAppearanceFlag.bind(this) }>{ ReactHtmlParser (data.appearance) }</div>
                 </div>
             )
         } else {
@@ -69,11 +54,26 @@ class CharacterAppearance extends Component {
                     <div className='col-12 rect-bottom no-padding-margin'>
                         <div className='col-12 float-left no-padding-margin'>
                             <Editor
-                                editorState={editorState}
-                                toolbarClassName='toolbarClassName'
-                                wrapperClassName='wrapperClassName'
-                                editorClassName='editorClassName'
-                                onEditorStateChange={this.updateAppearance.bind(this)}
+                                apiKey={ MIX_TINYMCE_API_KEY }
+                                value={ data.appearance }
+                                init={{
+                                    height: 300,
+                                    width: '100%',
+                                    menubar: false,
+                                    inline: false,
+                                    plugins: [
+                                        'advlist autolink lists link image charmap print preview anchor',
+                                        'searchreplace visualblocks code fullscreen',
+                                        'insertdatetime media table paste code help wordcount'
+                                    ],
+                                    toolbar: 'undo redo | formatselect | ' +
+                                    'bold italic backcolor | alignleft aligncenter ' +
+                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                    'removeformat | help',
+                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                }}
+                                onEditorChange={this.updateAppearance.bind(this)}
+                                onFocusOut={this.saveAppearance.bind(this)}
                             />
                         </div>
                     </div>

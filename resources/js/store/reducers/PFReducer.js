@@ -1,4 +1,7 @@
 import {
+    PF_RESET,
+    PF_LOAD,
+    PF_EDIT_IMAGE,
     PF_UPDATE_IMAGE,
     PF_SET_COLOR,
     PF_SAVE_DATA,
@@ -35,16 +38,16 @@ import {
     PF_EDIT_PERSONALITY,
     PF_UPDATE_PERSONALITY,
     PF_EDIT_BACKSTORY,
-    PF_UPDATE_BACKSTORY,
-    PF_INIT_APPEARANCE_EDITOR
+    PF_UPDATE_BACKSTORY
 } from '../actionTypes/PFTypes'
 
 /**
  * initial redux store state
  */
 const initialState = {
-    userImage: '/images/user.png',
+    userImage: '/images/user.jpg',
     accentColor: '#de009b',
+    editImage: false,
     editName: false,
     editRace: false,
     editGender: false,
@@ -62,17 +65,14 @@ const initialState = {
     editAppearance: false,
     editPersonality: false,
     editBackstory: false,
-    appearanceEditorState: {},
-    personalityEditorState: {},
-    backstoryEditorState: {},
     data: {
         name: 'NAMEY NAMEY (NAME NAME)',
-        race: 'Ursaran',
-        gender: 'Female',
-        age: '28 years',
-        size: '6\' 4\'\' 290 lbs',
-        class: 'Shaman',
-        homeland: 'Polaris',
+        race: 'Enter Race',
+        gender: 'Enter Gender',
+        age: 'Enter Age',
+        size: 'Enter Size',
+        class: 'Enter Class',
+        homeland: 'Enter Homeland',
         HP: 0,
         MP: 0,
         endurance: 0,
@@ -95,6 +95,7 @@ const initialState = {
  *
  * @return  {object}                updated redux state
  */
+// eslint-disable-next-line radar/cognitive-complexity
 const PFReducer = function (state = initialState, action) {
 
     let name = action.characterName ? action.characterName : null
@@ -116,10 +117,18 @@ const PFReducer = function (state = initialState, action) {
     let backstory = action.backstory ? action.backstory : null
     let dataObject = {}
 
+    // eslint-disable-next-line radar/max-switch-cases
     switch (action.type) {
+    case PF_EDIT_IMAGE:
+        return {
+            ...state,
+            editImage: !action.data
+        }
     case PF_UPDATE_IMAGE:
         return {
             ...state,
+            userImage: action.file,
+            editImage: !action.edit
         }
     case PF_SET_COLOR:
         return {
@@ -419,17 +428,6 @@ const PFReducer = function (state = initialState, action) {
             editDexterity: !action.edit,
             data: dataObject
         }
-    case PF_INIT_APPEARANCE_EDITOR:
-        dataObject = {
-            ...state.data,
-            appearance: action.contentState
-        }
-
-        return {
-            ...state,
-            appearanceEditorState: action.editorState,
-            data: dataObject
-        }
     case PF_EDIT_APPEARANCE:
         return {
             ...state,
@@ -489,6 +487,14 @@ const PFReducer = function (state = initialState, action) {
             ...state,
             editBackstory: !action.edit,
             data: dataObject
+        }
+    case PF_RESET:
+        return {
+            ...initialState,
+        }
+    case PF_LOAD:
+        return {
+            ...action.data,
         }
     default:
         return {
